@@ -23,6 +23,5 @@ def rearrange_words():
 
 if __name__ == '__main__':
     populate_words_list()
-    print(words)
     rearrange_words()
-    print(randomized_words)
+    print(' '.join(randomized_words))
