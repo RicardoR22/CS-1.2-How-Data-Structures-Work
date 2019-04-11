@@ -7,15 +7,17 @@ def count_words(words_list):
 
     for word in words_list:
         # check if we saw this word before
-        for list in word_counts:
+        for index, container in enumerate(word_counts):
             # increase its count by 1
-            if word in list:
-                list[1] += 1
+            if word in container:
+                lst = list(container)
+                lst[1] += 1
+                word_counts[index] = tuple(lst)
                 break
         else:
             # set it's count to 1
-            new_list = [word, 1]
-            word_counts.append(new_list)
+            new_tuple = (word, 1)
+            word_counts.append(new_tuple)
 
 
     return word_counts
@@ -25,9 +27,9 @@ def print_table(word_counts):
 
     print('Word | Count')
     print('-----------------')
-    for list in word_counts:
-        count = list[1]
-        word = list[0]
+    for tuple in word_counts:
+        count = tuple[1]
+        word = tuple[0]
         print('{} | {}'.format(word, count))
 
 
