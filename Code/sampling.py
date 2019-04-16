@@ -2,15 +2,15 @@ from histogram_functions import get_words
 from histogram_lists import count_words
 import random
 
-def sample_by_frequency(histogram):
-    # TODO: select a word based on frequency
-    list_from_histogram = []
-    for item in histogram:
-        for count in range(0, item[1]):
-            list_from_histogram.append(item[0])
-
-    rand_index = random.randint(0, len(list_from_histogram) - 1)
-    return list_from_histogram[rand_index]
+# def sample_by_frequency(histogram):
+#     # TODO: select a word based on frequency
+#     list_from_histogram = []
+#     for item in histogram:
+#         for count in range(0, item[1]):
+#             list_from_histogram.append(item[0])
+#
+#     rand_index = random.randint(0, len(list_from_histogram) - 1)
+#     return list_from_histogram[rand_index]
 
 def another_sample_by_frequency(histogram):
     # Find the most any word appears and set max_frequency equal to that value
@@ -22,7 +22,6 @@ def another_sample_by_frequency(histogram):
     # Generate a random frequency from one to max_frequency
     rand_frequency = random.randint(0, max_frequency)
 
-
     while True:
         # choose a random index to check
         rand_index = random.randint(0, len(histogram) - 1)
@@ -30,7 +29,6 @@ def another_sample_by_frequency(histogram):
         # check if the selected words frequency is higher or equal to the randomly generated frequency
         # if it is, return the word
         if selected_list[1] >= rand_frequency:
-            #print("The random frequency was {} and the selected word frequency is {}".format(rand_frequency, selected_list[1]))
             return selected_list[0]
 
 

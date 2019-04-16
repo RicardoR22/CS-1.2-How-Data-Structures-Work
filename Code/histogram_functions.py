@@ -6,11 +6,12 @@ def get_words(filename):
         for line in file:
             words_list = line.split()
             for word in words_list:
-                # Removes special characters from the end of the word
-                word_no_characters = word.translate({ord(c): None for c in '-?!@#$,.'})
-                word_no_spaces = word.strip()
-                word = word_no_spaces.lower()
-                all_words_list.append(word)
+                if not word == "-":
+                    # Removes special characters from the end of the word
+                    word_no_characters = word.translate({ord(c): None for c in '-?!@#$,.'})
+                    word_no_spaces = word.strip()
+                    word = word_no_spaces.lower()
+                    all_words_list.append(word)
     return all_words_list
 
 
