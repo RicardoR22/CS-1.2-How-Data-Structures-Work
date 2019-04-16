@@ -30,7 +30,7 @@ def print_table(word_counts):
         word = list[0]
         print('{} | {}'.format(word, count))
 
-
-word_list = get_words('GoT_text.txt')
-counts = count_words(word_list)
-print_table(counts)
+if __name__ == '__main__':
+    word_list = get_words('GoT_text.txt')
+    counts = count_words(word_list)
+    print_table(counts)
