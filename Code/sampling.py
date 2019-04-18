@@ -2,17 +2,8 @@ from histogram_functions import get_words
 from histogram_lists import count_words
 import random
 
-# def sample_by_frequency(histogram):
-#     # TODO: select a word based on frequency
-#     list_from_histogram = []
-#     for item in histogram:
-#         for count in range(0, item[1]):
-#             list_from_histogram.append(item[0])
-#
-#     rand_index = random.randint(0, len(list_from_histogram) - 1)
-#     return list_from_histogram[rand_index]
 
-def another_sample_by_frequency(histogram):
+def sample_by_frequency(histogram):
     # Find the most any word appears and set max_frequency equal to that value
     max_frequency = 0
     for item in histogram:
@@ -47,9 +38,7 @@ def check_frequency(histogram):
 if __name__ == '__main__':
     word_list = get_words('GoT_text.txt')
     counts = count_words(word_list)
-    #sample = sample_by_frequency(counts)
-    sample2 = another_sample_by_frequency(counts)
+    sample = sample_by_frequency(counts)
     frequency_check = check_frequency(counts)
-    #print(sample)
-    print(sample2)
+    print(sample)
     print(frequency_check)
