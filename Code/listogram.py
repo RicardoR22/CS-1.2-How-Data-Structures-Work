@@ -59,7 +59,7 @@ class Listogram(list):
         # TODO: Implement linear search to find index of entry with target word
         for list in self:
             # return word count
-            if word in list:
+            if target in list:
                 return self.index(list)
         else:
             return None

@@ -1,4 +1,4 @@
-from histogram_functions import get_words, print_table
+from histogram_functions import get_words
 
 def count_words(words_list):
     """Count occurences in the given list of words_list

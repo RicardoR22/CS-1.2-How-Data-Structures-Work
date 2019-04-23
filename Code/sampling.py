@@ -26,7 +26,7 @@ def sample_by_frequency(histogram):
 def check_frequency(histogram):
     frequency_dict = {}
     for _ in range(10000):
-        word = another_sample_by_frequency(histogram)
+        word = sample_by_frequency(histogram)
         if word in frequency_dict:
             frequency_dict[word] += 1
         else:
