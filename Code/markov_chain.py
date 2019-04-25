@@ -1,4 +1,5 @@
 from histogram_functions import get_words
+import random
 
 def markov_chain(words_list):
     chain = {}
@@ -30,6 +31,36 @@ def markov_chain(words_list):
                 word[next_word] = 1
     return chain
 
-word_list = get_words('fish.txt')
+def select_next_word(chain, word):
+    # Generate a random frequency from one to max_frequency
+    word_dict = chain[word]
+    max_frequency = max(word_dict.values())
+    rand_frequency = random.uniform(0, max_frequency)
+    list_from_word = list(word_dict)
+    while True:
+        # choose a random index to check
+        rand_index = random.randint(0, len(word_dict) - 1)
+        selected_word = list_from_word[rand_index]
+        # check if the selected words frequency is higher or equal to the randomly generated frequency
+        # if it is, return the word
+        if word_dict[selected_word] >= rand_frequency:
+            return selected_word
+
+def form_sentence(chain, starting_word, sentence_length):
+    previous_word = starting_word
+    selected_words_list = [starting_word]
+    for _ in range(sentence_length - 1):
+        selected_word = select_next_word(chain, previous_word)
+        selected_words_list.append(selected_word)
+        previous_word = selected_word
+    sentence = ' '.join(selected_words_list)
+    return sentence
+
+
+word_list = get_words('GoT_text.txt')
 chain = markov_chain(word_list)
-print(chain)
+list_from_chain = list(chain)
+random_word = random.choice(list_from_chain)
+print(random_word)
+sentence = form_sentence(chain, random_word, 10)
+print(sentence)

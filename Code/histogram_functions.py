@@ -9,7 +9,7 @@ def get_words(filename):
                 if not word == "-":
                     # Removes special characters from the end of the word
                     word_no_characters = word.translate({ord(c): None for c in '-?!@#$,.'})
-                    word_no_spaces = word.strip()
+                    word_no_spaces = word_no_characters.strip()
                     word = word_no_spaces.lower()
                     all_words_list.append(word)
     return all_words_list
