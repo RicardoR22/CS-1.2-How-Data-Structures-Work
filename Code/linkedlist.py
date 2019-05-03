@@ -71,11 +71,9 @@ class LinkedList(object):
         # TODO: Create new node to hold given item
         # TODO: Append node after tail, if it exists
         new_node = Node(item)
-        current_node = self.head
+        current_node = self.tail
         # Check if linked list is not empty
         if not self.is_empty():
-            while current_node.next is not None:
-                current_node = current_node.next
             current_node.next = new_node
             self.tail = new_node
         else:
