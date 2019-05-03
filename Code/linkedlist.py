@@ -133,11 +133,13 @@ class LinkedList(object):
                     self.tail = None
                 elif current_node == self.head:
                     self.head = current_node.next
+                    current_node.next = None
                 elif current_node == self.tail:
                     previous_node.next = None
                     self.tail = previous_node
                 else:
                     previous_node.next = current_node.next
+                    current_node.next = None
                 return
             else:
                 previous_node = current_node
