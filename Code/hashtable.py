@@ -26,7 +26,9 @@ class HashTable(object):
 
     def keys(self):
         """Return a list of all keys in this hash table.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: O(n) where n is equal to the average number
+        of items in a bucket
+        """
         # Collect all keys in each bucket
         all_keys = []
         for bucket in self.buckets:
@@ -36,7 +38,9 @@ class HashTable(object):
 
     def values(self):
         """Return a list of all values in this hash table.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: O(n) where n is equal to the average number
+        of items in a bucket
+        """
         # TODO: Loop through all buckets
         # TODO: Collect all values in each bucket
         all_values = []
@@ -47,16 +51,18 @@ class HashTable(object):
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: O(n) where n is equal to the average number
+        of items in a bucket"""
         # Collect all pairs of key-value entries in each bucket
         all_items = []
         for bucket in self.buckets:
-            all_items.extend(bucket.items())
+            all_items.extend(bucket.items()) # bucket.items() = O(l)
         return all_items
 
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: O(n) where n is equal to the average number
+        of items in a bucket"""
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
         count = 0 #O(1)
@@ -66,11 +72,13 @@ class HashTable(object):
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: Best case O(1) if it's found at the first item in the bucket
+        Worst case O(n) if it's the last item in the bucket or not found at all
+        """
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
-        index = self._bucket_index(key)
-        bucket = self.buckets[index]
+        index = self._bucket_index(key) # O(1)
+        bucket = self.buckets[index] # O(1)
         item = bucket.find(lambda value: value[0] == key)
 
         if item == None:
@@ -81,7 +89,8 @@ class HashTable(object):
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: Best case O(1) if it's found at the first item in the bucket
+        Worst case O(n) if it's the last item in the bucket or not found at all"""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, return value associated with given key
@@ -99,7 +108,8 @@ class HashTable(object):
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: Best case O(1) if it's found at the first item in the bucket
+        Worst case O(n) if it's the last item in the bucket or not found at all"""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, update value associated with given key
@@ -117,7 +127,8 @@ class HashTable(object):
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: Best case O(1) if it's found at the first item in the bucket
+        Worst case O(n) if it's the last item in the bucket or not found at all"""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, delete entry associated with given key
