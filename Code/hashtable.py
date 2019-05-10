@@ -147,6 +147,7 @@ class HashTable(object):
             raise KeyError('Key not found: {}'.format(key))
         else:
             # Found, delete entry associated with given key
+            bucket.delete(item) # best case O(1), worst case O(l) where l is n/b
 
 
 def test_hash_table():
