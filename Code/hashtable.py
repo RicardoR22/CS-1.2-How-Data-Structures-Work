@@ -73,75 +73,80 @@ class HashTable(object):
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
         Running time: Best case O(1) if it's found at the first item in the bucket
-        Worst case O(n) if it's the last item in the bucket or not found at all
+        Worst case O(n) where n is equal to the average number of items in a bucket.
+        Worst case if it's the last item in the bucket or not found at all
         """
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         index = self._bucket_index(key) # O(1)
         bucket = self.buckets[index] # O(1)
-        item = bucket.find(lambda value: value[0] == key)
+        item = bucket.find(lambda value: value[0] == key) # best case O(1), worst case O(l) where l is n/b
 
-        if item == None:
-            return False
+        if item == None: # O(1)
+            return False # O(1)
         else:
-            return True
+            return True # O(1)
 
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         Running time: Best case O(1) if it's found at the first item in the bucket
-        Worst case O(n) if it's the last item in the bucket or not found at all"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
-        # TODO: If found, return value associated with given key
-        # TODO: Otherwise, raise error to tell user get failed
-        # Hint: raise KeyError('Key not found: {}'.format(key))
-        index = self._bucket_index(key)
-        bucket = self.buckets[index]
-        item = bucket.find(lambda value: value[0] == key)
+        Worst case O(n) where n is equal to the average number of items in a bucket.
+        Worst case if it's the last item in the bucket or not found at all"""
 
-        if item == None:
+        # TODO: Find bucket where given key belongs
+        index = self._bucket_index(key) # O(1)
+        bucket = self.buckets[index] # O(1)
+        # TODO: Check if key-value entry exists in bucket
+        item = bucket.find(lambda value: value[0] == key) # best case O(1), worst case O(l) where l is n/b
+
+        if item == None: # O(1)
+            # TODO: Otherwise, raise error to tell user get failed
             raise KeyError('Key not found: {}'.format(key))
         else:
-            return item[1]
+            # TODO: If found, return value associated with given key
+            return item[1] # O(1)
 
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         Running time: Best case O(1) if it's found at the first item in the bucket
-        Worst case O(n) if it's the last item in the bucket or not found at all"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
-        # TODO: If found, update value associated with given key
-        # TODO: Otherwise, insert given key-value entry into bucket
-        index = self._bucket_index(key)
-        bucket = self.buckets[index]
-        item = bucket.find(lambda value: value[0] == key)
+        Worst case O(n) where n is equal to the average number of items in a bucket.
+        Worst case if it's the last item in the bucket or not found at all"""
 
-        if item == None:
-            bucket.append((key, value))
+
+        # TODO: Find bucket where given key belongs
+        index = self._bucket_index(key) # O(1)
+        bucket = self.buckets[index] # O(1)
+        # TODO: Check if key-value entry exists in bucket
+        item = bucket.find(lambda value: value[0] == key) # best case O(1), worst case O(l) where l is n/b
+
+        if item == None: # O(1)
+            # Not found, insert given key-value entry into bucket
+            bucket.append((key, value)) # O(1)
         else:
-            bucket.delete(item)
-            bucket.append((key, value))
+            # Found, update value associated with given key
+            bucket.delete(item) # best case O(1), worst case O(l) where l is n/b
+            bucket.append((key, value)) # O(1)
 
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
         Running time: Best case O(1) if it's found at the first item in the bucket
-        Worst case O(n) if it's the last item in the bucket or not found at all"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
-        # TODO: If found, delete entry associated with given key
-        # TODO: Otherwise, raise error to tell user delete failed
-        # Hint: raise KeyError('Key not found: {}'.format(key))
-        index = self._bucket_index(key)
-        bucket = self.buckets[index]
-        item = bucket.find(lambda value: value[0] == key)
+        Worst case O(n) where n is equal to the average number of items in a bucket.
+        Worst case if it's the last item in the bucket or not found at all"""
 
-        if item == None:
+        # TODO: Find bucket where given key belongs
+        index = self._bucket_index(key) # O(1)
+        bucket = self.buckets[index] # O(1)
+        # TODO: Check if key-value entry exists in bucket
+        item = bucket.find(lambda value: value[0] == key) # best case O(1), worst case O(l) where l is n/b
+
+        if item == None: # O(1)
+            # Not Found, raise error to tell user delete failed
             raise KeyError('Key not found: {}'.format(key))
         else:
-            bucket.delete(item)
+            # Found, delete entry associated with given key
 
 
 def test_hash_table():

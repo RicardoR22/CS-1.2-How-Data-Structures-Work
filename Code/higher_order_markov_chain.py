@@ -2,6 +2,9 @@ from histogram_functions import get_words
 import random
 
 def markov_chain(words_list):
+    # Key for the chain should be a pair of words in a tuple
+    # Values should be a dictionary with the words that follow the pair of words in the tuple
+    # along with the amount of times they appear after this pair of words.
     chain = {}
     for index in range(len(words_list) - 1):
         # Set word equal to the word at the current index in words_list
@@ -55,6 +58,7 @@ def form_sentence(chain, starting_word, sentence_length):
         previous_word = selected_word
     sentence = ' '.join(selected_words_list)
     return sentence
+
 
 if __name__ == '__main__':
     word_list = get_words('GoT_text.txt')
