@@ -73,7 +73,7 @@ class HashTable(object):
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
         Running time: Best case O(1) if it's found at the first item in the bucket
-        Worst case O(n) where n is equal to the average number of items in a bucket.
+        Worst case O(l) where l is equal to the number of items in the bucket.
         Worst case if it's the last item in the bucket or not found at all
         """
         # TODO: Find bucket where given key belongs
@@ -91,7 +91,7 @@ class HashTable(object):
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         Running time: Best case O(1) if it's found at the first item in the bucket
-        Worst case O(n) where n is equal to the average number of items in a bucket.
+        Worst case O(l) where l is equal to the number of items in the bucket.
         Worst case if it's the last item in the bucket or not found at all"""
 
         # TODO: Find bucket where given key belongs
@@ -111,7 +111,7 @@ class HashTable(object):
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         Running time: Best case O(1) if it's found at the first item in the bucket
-        Worst case O(n) where n is equal to the average number of items in a bucket.
+        Worst case O(l) where l is equal to the number of items in the bucket.
         Worst case if it's the last item in the bucket or not found at all"""
 
 
@@ -133,7 +133,7 @@ class HashTable(object):
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
         Running time: Best case O(1) if it's found at the first item in the bucket
-        Worst case O(n) where n is equal to the average number of items in a bucket.
+        Worst case O(l) where l is equal to the number of items in the bucket.
         Worst case if it's the last item in the bucket or not found at all"""
 
         # TODO: Find bucket where given key belongs
