@@ -57,7 +57,7 @@ def form_sentence(chain, starting_words, sentence_length):
 
 
 if __name__ == '__main__':
-    word_list = get_words('fish.txt')
+    word_list = get_words('GoT_text.txt')
     chain = markov_chain(word_list)
     list_from_chain = list(chain)
     random_words = random.choice(list_from_chain)
@@ -65,4 +65,4 @@ if __name__ == '__main__':
     sentence = form_sentence(chain, random_words, 10)
     print(sentence)
     print("sampling info:")
-    print(higher_markov_check_frequency(chain[random_words]))
+    print(higher_markov_check_frequency(chain))

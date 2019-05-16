@@ -45,11 +45,16 @@ def higher_markov_sampling(histogram):
 def higher_markov_check_frequency(histogram):
     frequency_dict = {}
     for _ in range(10000):
-        word = higher_markov_sampling(histogram)
-        if word in frequency_dict:
-            frequency_dict[word] += 1
+        word_pair = random.choice(list(histogram))
+        word = higher_markov_sampling(histogram[word_pair])
+        if word_pair in frequency_dict:
+            following_words = frequency_dict[word_pair]
+            if word in following_words:
+                following_words[word] += 1
+            else:
+                following_words[word] = 1
         else:
-            frequency_dict[word] = 1
+            frequency_dict[word_pair] = {word:1}
 
     return frequency_dict
 
