@@ -22,6 +22,37 @@ def sample_by_frequency(histogram):
         if selected_list[1] >= rand_frequency:
             return selected_list[0]
 
+def higher_markov_sampling(histogram):
+    # Find the most any word appears and set max_frequency equal to that value
+    max_frequency = 0
+    for key, value in histogram.items():
+        if value > max_frequency:
+            max_frequency = value
+
+    # Generate a random frequency from one to max_frequency
+    rand_frequency = random.randint(0, max_frequency)
+
+    while True:
+        # choose a random index to check
+        rand_index = random.randint(0, len(histogram) - 1)
+        list_from_histrogram = list(histogram)
+        selected_word = list_from_histrogram[rand_index]
+        # check if the selected words frequency is higher or equal to the randomly generated frequency
+        # if it is, return the word
+        if histogram[selected_word] >= rand_frequency:
+            return selected_word
+
+def higher_markov_check_frequency(histogram):
+    frequency_dict = {}
+    for _ in range(10000):
+        word = higher_markov_sampling(histogram)
+        if word in frequency_dict:
+            frequency_dict[word] += 1
+        else:
+            frequency_dict[word] = 1
+
+    return frequency_dict
+
 
 def check_frequency(histogram):
     frequency_dict = {}
