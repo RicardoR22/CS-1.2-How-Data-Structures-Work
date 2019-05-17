@@ -9,8 +9,8 @@ def markov_chain(words_list):
     chain = {}
     for index in range(len(words_list) - 2):
         # Set word equal to the word at the current index in words_list
-        current_words = (word_list[index], word_list[index + 1])
-        next_word = word_list[index + 2]
+        current_words = (words_list[index], words_list[index + 1])
+        next_word = words_list[index + 2]
         # Check if word is in the chain
         if current_words in chain:
             following_words = chain[current_words]
