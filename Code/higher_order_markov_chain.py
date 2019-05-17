@@ -57,12 +57,12 @@ def form_sentence(chain, starting_words, sentence_length):
 
 
 if __name__ == '__main__':
-    word_list = get_words('GoT_text.txt')
+    word_list = get_words('corpus.txt')
     chain = markov_chain(word_list)
     list_from_chain = list(chain)
     random_words = random.choice(list_from_chain)
     print(random_words)
-    sentence = form_sentence(chain, random_words, 10)
+    sentence = form_sentence(chain, random_words, 15)
     print(sentence)
-    print("sampling info:")
-    print(higher_markov_check_frequency(chain))
+    # print("sampling info:")
+    # print(higher_markov_check_frequency(chain))
